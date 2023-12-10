@@ -195,9 +195,9 @@ def list_products_category():
         # create enum from string
         category_value = getattr(Category, category.upper())
         products = Product.find_by_category(category_value)
-    else:
-        app.logger.info("Find all")
-        products = Product.all()
+    # else:
+    #     app.logger.info("Find all")
+    #     products = Product.all()
     results = [product.serialize() for product in products]
     app.logger.info("[%s] Products returned", len(results))
     return results, status.HTTP_200_OK
